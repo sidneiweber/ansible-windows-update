@@ -1,0 +1,65 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Get ec2 instance info
+      ec2_instance_info:
+        filters:
+          "tag:Name": "{{ hostname }}"
+          instance-state-name: [ "running" ]
+      register: instance
+        
+    - name: Set facts to instance
+      set_fact:
+        instance_id: "{{ instance.instances[0].instance_id }}"
+        device_name: "{{ instance.instances[0].block_device_mappings[0].device_name }}"
+        private_ip: "{{ instance.instances[0].network_interfaces[0].private_ip_address }}"
+
+    - name: Take snapshot
+      ec2_snapshot:
+        instance_id: "{{ instance_id }}"
+        device_name: "{{ device_name }}"
+        description: snapshot pre Windows update
+        snapshot_tags:
+          #Name: backup-windows-"{{ awx_job_id }}"
+          Name: backup-windows
+        region: us-east-1
+
+    - name: add hosts to groups
+      add_host:
+        name: "win-temp-{{ instance_id }}"
+        ansible_ssh_host: "{{ private_ip }}"
+        groups: win
+
+- hosts: win
+  tasks:
+
+    - name: Find Windows Updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+        reboot: no
+        state: searched
+        #log_path: C:\ansible_wu.txt
+      register: updates_install
+
+    - name: Check updates
+      debug:
+        var: "{{ updates_install.found_update_count }}"
+      when: updates_install.found_update_count >= 1
+
+    - name: Install Windows Updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+        reboot: no
+        state: installed
+        #log_path: C:\ansible_wu.txt
+      register: pos_install
+      when: updates_install.found_update_count >= 1
+      ignore_errors: yes
+
+    - name: Check if reboot required
+      debug:
+        var: " {{ pos_install.reboot_required }}"
+      when: updates_install.found_update_count >= 1
+      

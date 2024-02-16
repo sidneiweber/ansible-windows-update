@@ -1,0 +1,87 @@
+2020-07-08 18:55:20Z WUA is available in current logon process, running natively
+2020-07-08 18:55:20Z Creating Windows Update session...
+2020-07-08 18:55:20Z Create Windows Update searcher...
+2020-07-08 18:55:20Z Setting the Windows Update Agent source catalog...
+2020-07-08 18:55:20Z Requested search source is 'default'
+2020-07-08 18:55:20Z Search source set to 'default' (ServerSelection = 0)
+2020-07-08 18:55:20Z Searching for updates to install
+2020-07-08 18:55:23Z Found 4 updates
+2020-07-08 18:55:23Z Creating update collection...
+2020-07-08 18:55:23Z Adding update 5ec74f69-4d5a-4239-9439-62a096d2041a - 2020-05 Cumulative Update for .NET Framework 3.5, 4.7.2 and 4.8 for Windows Server 2019 for x64 (KB4556441)
+2020-07-08 18:55:23Z Skipping update 2221dd34-39bb-4f16-b320-be49fe4a6b95 - Windows Malicious Software Removal Tool x64 - v5.82 (KB890830) as it was not found in the category names filter
+2020-07-08 18:55:23Z Adding update 14b1604e-c818-4fae-b1df-2bd789ec173a - 2020-06 Security Update for Adobe Flash Player for Windows Server 2019 for x64-based Systems (KB4561600)
+2020-07-08 18:55:23Z Adding update 8e13164a-1537-48a0-be10-4161fef4149b - 2020-06 Cumulative Update for Windows Server 2019 (1809) for x64-based Systems (KB4561608)
+2020-07-08 18:55:23Z Calculating pre-install reboot requirement...
+2020-07-08 18:55:23Z Check mode: exiting...
+2020-07-08 18:55:23Z Return value:
+{
+    "updates":  {
+                    "14b1604e-c818-4fae-b1df-2bd789ec173a":  {
+                                                                 "categories":  [
+                                                                                    "Security Updates",
+                                                                                    "Windows Server 2019"
+                                                                                ],
+                                                                 "title":  "2020-06 Security Update for Adobe Flash Player for Windows Server 2019 for x64-based Systems (KB4561600)",
+                                                                 "id":  "14b1604e-c818-4fae-b1df-2bd789ec173a",
+                                                                 "installed":  false,
+                                                                 "kb":  [
+                                                                            "4561600"
+                                                                        ]
+                                                             },
+                    "8e13164a-1537-48a0-be10-4161fef4149b":  {
+                                                                 "categories":  [
+                                                                                    "Security Updates"
+                                                                                ],
+                                                                 "title":  "2020-06 Cumulative Update for Windows Server 2019 (1809) for x64-based Systems (KB4561608)",
+                                                                 "id":  "8e13164a-1537-48a0-be10-4161fef4149b",
+                                                                 "installed":  false,
+                                                                 "kb":  [
+                                                                            "4561608"
+                                                                        ]
+                                                             },
+                    "5ec74f69-4d5a-4239-9439-62a096d2041a":  {
+                                                                 "categories":  [
+                                                                                    "Security Updates",
+                                                                                    "Windows Server 2019"
+                                                                                ],
+                                                                 "title":  "2020-05 Cumulative Update for .NET Framework 3.5, 4.7.2 and 4.8 for Windows Server 2019 for x64 (KB4556441)",
+                                                                 "id":  "5ec74f69-4d5a-4239-9439-62a096d2041a",
+                                                                 "installed":  false,
+                                                                 "kb":  [
+                                                                            "4556441"
+                                                                        ]
+                                                             }
+                },
+    "found_update_count":  3,
+    "changed":  false,
+    "reboot_required":  false,
+    "installed_update_count":  0,
+    "filtered_updates":  {
+                             "2221dd34-39bb-4f16-b320-be49fe4a6b95":  {
+                                                                          "id":  "2221dd34-39bb-4f16-b320-be49fe4a6b95",
+                                                                          "filtered_reason":  "category_names",
+                                                                          "title":  "Windows Malicious Software Removal Tool x64 - v5.82 (KB890830)",
+                                                                          "categories":  [
+                                                                                             "Update Rollups",
+                                                                                             "Windows Server 2016",
+                                                                                             "Windows Server 2019"
+                                                                                         ],
+                                                                          "kb":  [
+                                                                                     "890830"
+                                                                                 ],
+                                                                          "installed":  false
+                                                                      }
+                         }
+}
+2020-07-08 18:55:23Z Native job completed with output: 
+Name                           Value                                                                                                                                                                                                                                                                        
+----                           -----                                                                                                                                                                                                                                                                        
+updates                        {14b1604e-c818-4fae-b1df-2bd789ec173a, 8e13164a-1537-48a0-be10-4161fef4149b, 5ec74f69-4d5a-4239-9439-62a096d2041a}                                                                                                                                                           
+found_update_count             3                                                                                                                                                                                                                                                                            
+changed                        False                                                                                                                                                                                                                                                                        
+reboot_required                False                                                                                                                                                                                                                                                                        
+installed_update_count         0                                                                                                                                                                                                                                                                            
+filtered_updates               {2221dd34-39bb-4f16-b320-be49fe4a6b95}                                                                                                                                                                                                                                       
+
+
+
